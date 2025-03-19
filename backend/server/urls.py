@@ -38,7 +38,7 @@ schema_view = get_schema_view(
         license=openapi.License(name="MIT License"),
     ),
     public=True,
-    permission_classes=[permissions.AllowAny],  # Fix: Change tuple to list
+    permission_classes=[permissions.AllowAny],
 )
 
 urlpatterns: Iterable[URLResolver | URLPattern] = [
@@ -51,6 +51,6 @@ urlpatterns: Iterable[URLResolver | URLPattern] = [
 ]
 
 if bool(settings.DEBUG):
-    urlpatterns = list(urlpatterns)  # Convert urlpatterns to a list
+    urlpatterns = list(urlpatterns)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += debug_toolbar_urls()  # type: ignore
